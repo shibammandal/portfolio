@@ -13,14 +13,14 @@
 
     <style>
         :root {
-            --color: #33b5e5;
-            /* Flat Blue - holo_blue_light */
+            --color: #ffffff;
+            /* Text White - Primary Color */
             --background: #121212;
-            /* Material Dark Gray (not full black) */
+            /* Material Dark Gray */
             --size: 1.2;
             --font: 'Fira Code', 'CaskaydiaCove Nerd Font', 'FiraCode Nerd Font', 'MesloLGS NF', monospace;
-            --link-color: #0099cc;
-            /* Slightly darker blue for links */
+            --link-color: #33b5e5;
+            /* Link Blue */
         }
 
         html,
@@ -39,8 +39,9 @@
             --terminal-text-shadow: none;
         }
 
+        /* Ensure .cmd (user typing) is white/default */
         .cmd {
-            --color: #33b5e5;
+            --color: var(--color);
         }
 
         /* Prompt Styling */
@@ -51,10 +52,9 @@
 
         .command {
             cursor: default;
-            /* No pointer cursor in real terminals */
         }
 
-        /* Links - underline on hover, consistent blue */
+        /* Links */
         .terminal a {
             color: var(--link-color);
             text-decoration: none;
@@ -65,26 +65,6 @@
             background: var(--link-color);
             color: var(--background);
             text-decoration: none;
-        }
-
-        /* Directory colors */
-        .directory {
-            color: #5f87ff;
-            /* Directory Blue */
-            font-weight: bold;
-        }
-
-        /* Executable colors */
-        .executable {
-            color: #00ff00;
-            /* Executable Green */
-            font-weight: bold;
-        }
-
-        /* File colors */
-        .file {
-            color: #ffffff;
-            /* File White */
         }
 
         @media screen and (min-width: 1200px) {
@@ -109,31 +89,19 @@
             background: #333;
             border: 1px solid var(--background);
         }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: #444;
-        }
     </style>
 
-    <!-- Google Fonts + Nerd Font patches via CSS for FiraCode -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
-    <!-- Using a Nerd Font webfont CDN (approximate) or fallback to system fonts -->
     <link href="https://www.nerdfonts.com/assets/css/webfont.css" rel="stylesheet">
 </head>
 
 <body>
-    <!-- jQuery -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
-
-    <!-- jQuery Terminal -->
     <script src="https://cdn.jsdelivr.net/npm/jquery.terminal@2.37.1/js/jquery.terminal.min.js"></script>
-
-    <!-- Figlet for ASCII art -->
     <script src="https://cdn.jsdelivr.net/npm/figlet@1.6.0/lib/figlet.js"></script>
-
-    <!-- Main application -->
     <script src="./main.js"></script>
 </body>
 

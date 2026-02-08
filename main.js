@@ -1,12 +1,21 @@
 /* ============================================
    Shibam Mandal - Minimal Linux Terminal Portfolio
-   Theme: Flat Blue
+   Theme: Flat Blue & White
    ============================================ */
 
 const user = 'shibam';
 const host = 'portfolio';
 const root = '~';
 let cwd = root;
+
+// Color Configuration
+const colors = {
+    blue: '#33b5e5',
+    white: '#ffffff',
+    green: '#00ff00',
+    gray: '#c0c0c0',
+    dir: '#5f87ff'
+};
 
 // Virtual File System
 const fileSystem = {
@@ -61,7 +70,6 @@ Location: India
 };
 
 function getDir(path) {
-    // Simple implementation for single level depth as we only have ~
     if (path === '~' || path === '/home/shibam') return fileSystem['~'];
     return null;
 }
@@ -69,17 +77,17 @@ function getDir(path) {
 const commands = {
     help: function () {
         this.echo(`
-[[b;#33b5e5;]GNU bash, version 5.0.17(1)-release (custom)]
-These shell commands are defined internally. Type [[b;#ffffff;]help] to see this list.
+[[b;${colors.blue};]GNU bash, version 5.0.17(1)-release (custom)]
+These shell commands are defined internally. Type [[b;${colors.white};]help] to see this list.
 
-  [[b;#33b5e5;]ls] [dir]        List directory contents
-  [[b;#33b5e5;]cat] [file]      Concatenate and print files
-  [[b;#33b5e5;]clear]           Clear terminal screen
-  [[b;#33b5e5;]neofetch]        Display system info
-  [[b;#33b5e5;]whoami]          Print effective userid
-  [[b;#33b5e5;]projects]        View projects
+  [[b;${colors.blue};]ls] [dir]        List directory contents
+  [[b;${colors.blue};]cat] [file]      Concatenate and print files
+  [[b;${colors.blue};]clear]           Clear terminal screen
+  [[b;${colors.blue};]neofetch]        Display system info
+  [[b;${colors.blue};]whoami]          Print effective userid
+  [[b;${colors.blue};]projects]        View projects
   
-  [[i;#888888;]Try 'ls' to see available files.]
+  [[i;${colors.gray};]Try 'ls' to see available files.]
 `);
     },
 
@@ -89,9 +97,12 @@ These shell commands are defined internally. Type [[b;#ffffff;]help] to see this
             const files = Object.keys(dir.files).map(f => {
                 const item = dir.files[f];
                 if (typeof item === 'object' && item.type === 'exec') {
-                    return `[[b;#00ff00;]${f}*]`;
+                    return `[[b;${colors.green};]${f}*]`;
                 }
-                return f;
+                if (f.endsWith('.md') || f.endsWith('.txt')) {
+                    return `[[b;${colors.white};]${f}]`;
+                }
+                return `[[b;${colors.white};]${f}]`;
             });
             this.echo(files.join('  '));
         }
@@ -111,7 +122,6 @@ These shell commands are defined internally. Type [[b;#ffffff;]help] to see this
         }
     },
 
-    // Explicit project command as requested shortcut
     projects: function () {
         this.echo("Oh-oh too many to show here, visit the github: https://github.com/shibammandal");
     },
@@ -122,27 +132,26 @@ These shell commands are defined internally. Type [[b;#ffffff;]help] to see this
 
     neofetch: function () {
         this.echo(`
-[[b;#33b5e5;]       .---.      ]  [[b;#33b5e5;]${user}][[;#ffffff;]@]${host}
-[[b;#33b5e5;]      /     \\     ]  ------------------
-[[b;#33b5e5;]      |  O  |     ]  [[b;#33b5e5;]OS][[;#ffffff;]: Portfolio Linux x86_64]
-[[b;#33b5e5;]      |  |  |     ]  [[b;#33b5e5;]Host][[;#ffffff;]: Web Browser]
-[[b;#33b5e5;]   .--|  |  |--.  ]  [[b;#33b5e5;]Kernel][[;#ffffff;]: 5.10.0-portfolio]
-[[b;#33b5e5;]  /   |  |  |   \\ ]  [[b;#33b5e5;]Uptime][[;#ffffff;]: 4 years]
-[[b;#33b5e5;] |    |  |  |    |]  [[b;#33b5e5;]Shell][[;#ffffff;]: bash 5.0.17]
-[[b;#33b5e5;] '.__.'--'--'.__.' ]  [[b;#33b5e5;]Resolution][[;#ffffff;]: 1920x1080]
-                            [[b;#33b5e5;]Theme][[;#ffffff;]: Flat Blue]
-                            [[b;#33b5e5;]Icons][[;#ffffff;]: Nerd Fonts]
+[[b;${colors.blue};]       .---.      ]  [[b;${colors.blue};]${user}][[;${colors.white};]@]${host}
+[[b;${colors.blue};]      /     \\     ]  ------------------
+[[b;${colors.blue};]      |  O  |     ]  [[b;${colors.blue};]OS][[;${colors.white};]: Portfolio Linux x86_64]
+[[b;${colors.blue};]      |  |  |     ]  [[b;${colors.blue};]Host][[;${colors.white};]: Web Browser]
+[[b;${colors.blue};]   .--|  |  |--.  ]  [[b;${colors.blue};]Kernel][[;${colors.white};]: 5.10.0-portfolio]
+[[b;${colors.blue};]  /   |  |  |   \\ ]  [[b;${colors.blue};]Uptime][[;${colors.white};]: 4 years]
+[[b;${colors.blue};] |    |  |  |    |]  [[b;${colors.blue};]Shell][[;${colors.white};]: bash 5.0.17]
+[[b;${colors.blue};] '.__.'--'--'.__.' ]  [[b;${colors.blue};]Resolution][[;${colors.white};]: 1920x1080]
+                            [[b;${colors.blue};]Theme][[;${colors.white};]: Flat Blue]
+                            [[b;${colors.blue};]Icons][[;${colors.white};]: Nerd Fonts]
 `);
     },
 
-    // Executables
     resume: function () { fileSystem['~'].files['resume'].exec(); },
     github: function () { fileSystem['~'].files['github'].exec(); },
     linkedin: function () { fileSystem['~'].files['linkedin'].exec(); }
 };
 
 const banner = `
-[[b;#33b5e5;]
+[[b;${colors.blue};]
    _____ _     _ _                       
   / ____| |   (_) |                      
  | (___ | |__  _| |__   __ _ _ __ ___    
@@ -152,14 +161,14 @@ const banner = `
                                          
 ]
 Welcome to Shibam's Portfolio. 
-Type [[b;#ffffff;]help] to see available commands.
-Type [[b;#ffffff;]ls] to see files.
+Type [[b;${colors.white};]help] to see available commands.
+Type [[b;${colors.white};]ls] to see files.
 `;
 
 jQuery(document).ready(function ($) {
     $('body').terminal(commands, {
         greetings: banner,
-        prompt: `[[b;#33b5e5;]${user}@${host}][[;#ffffff;]:][[b;#5f87ff;]~][[;#ffffff;]$ ]`,
+        prompt: `[[b;${colors.blue};]${user}@${host}][[;${colors.white};]:][[b;${colors.dir};]~][[;${colors.white};]$ ]`,
         checkArity: false,
         completion: function (string, callback) {
             const base = Object.keys(commands);
