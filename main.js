@@ -130,18 +130,43 @@ These shell commands are defined internally. Type [[b;${colors.white};]help] to 
     },
 
     neofetch: function () {
-        this.echo(`
-[[b;${colors.blue};]       .---.      ]  [[b;${colors.blue};]${user}][[;${colors.white};]@]${host}
-[[b;${colors.blue};]      /     \\     ]  ------------------
-[[b;${colors.blue};]      |  O  |     ]  [[b;${colors.blue};]OS][[;${colors.white};]: Portfolio Linux x86_64]
-[[b;${colors.blue};]      |  |  |     ]  [[b;${colors.blue};]Host][[;${colors.white};]: Web Browser]
-[[b;${colors.blue};]   .--|  |  |--.  ]  [[b;${colors.blue};]Kernel][[;${colors.white};]: 5.10.0-portfolio]
-[[b;${colors.blue};]  /   |  |  |   \\ ]  [[b;${colors.blue};]Uptime][[;${colors.white};]: 4 years]
-[[b;${colors.blue};] |    |  |  |    |]  [[b;${colors.blue};]Shell][[;${colors.white};]: bash 5.0.17]
-[[b;${colors.blue};] '.__.'--'--'.__.' ]  [[b;${colors.blue};]Resolution][[;${colors.white};]: 1920x1080]
-                            [[b;${colors.blue};]Theme][[;${colors.white};]: Flat Blue]
-                            [[b;${colors.blue};]Icons][[;${colors.white};]: Nerd Fonts]
-`);
+        const art = [
+            '⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣷⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀',
+            '⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢻⣇⠀⠀⣾⡄⠀⠀⠀⢀⡆⠀⠀⠀⠀⠀⠀⠀',
+            '⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⣿⣆⢀⣿⣿⣦⣴⣤⣿⡇⠀⠀⠀⠀⠀⠀⠀',
+            '⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢻⣿⣼⣿⣿⡟⢻⡟⢻⣇⠀⠀⠀⠀⠀⠀⠀',
+            '⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀',
+            '⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⣿⣿⣿⣿⣿⣿⣿⣿⣯⠀⠀⠀⠀⠀⠀⠀⠀',
+            '⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡄⠀⠀⠀⠀⠀⠀⠀',
+            '⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡄⠀⠀⠀⠀⠀⠀',
+            '⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⡿⠋⠀⢻⣿⣿⡛⠛⠁⠈⠻⣿⣿⡄⠀⠀⠀⠀⠀',
+            '⠀⠀⠀⠀⠀⠀⠀⠀⠀⣼⣿⡇⠀⠀⢸⣿⣿⣇⠀⠀⠀⠀⠘⢿⣿⣶⡄⠀⠀⠀',
+            '⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠋⠀⠀⠀⠹⠿⠟⠋⠀⠀⠀⠀⠀⠘⠛⠟⠃⠀⠀⠀'
+        ];
+
+        const info = [
+            `[[b;#33b5e5;]${user}][[;${colors.white};]@]${host}`,
+            `------------------`,
+            `[[b;#33b5e5;]OS][[;${colors.white};]: Portfolio Linux x86_64]`,
+            `[[b;#33b5e5;]Host][[;${colors.white};]: Web Browser]`,
+            `[[b;#33b5e5;]Kernel][[;${colors.white};]: 5.10.0-portfolio]`,
+            `[[b;#33b5e5;]Uptime][[;${colors.white};]: 4 years]`,
+            `[[b;#33b5e5;]Shell][[;${colors.white};]: bash 5.0.17]`,
+            `[[b;#33b5e5;]Resolution][[;${colors.white};]: 1920x1080]`,
+            `[[b;#33b5e5;]Theme][[;${colors.white};]: Flat Blue]`,
+            `[[b;#33b5e5;]Icons][[;${colors.white};]: Nerd Fonts]`
+        ];
+
+        let output = '\n';
+        for (let i = 0; i < art.length; i++) {
+            let line = `[[b;#33b5e5;]${art[i]}]`;
+            if (i < info.length) {
+                line += '  ' + info[i];
+            }
+            output += line + '\n';
+        }
+
+        this.echo(output);
     },
 
     resume: function () { fileSystem['~'].files['resume'].exec(); },
