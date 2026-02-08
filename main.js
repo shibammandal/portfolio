@@ -58,12 +58,14 @@ Coursework:
             'contact.txt': `Email:    shibammandalfy@gmail.com
 GitHub:   https://github.com/shibammandal
 LinkedIn: https://linkedin.com/in/shibammandalfy
+Scholar:  https://scholar.google.com/citations?user=KDGGG4EAAAAJ&hl=en
 Location: India
 `,
             'projects.txt': `Oh-oh too many to show here, visit the github: https://github.com/shibammandal`,
             'resume': { type: 'exec', exec: function () { window.open('CV.pdf', '_blank'); return 'Opening CV...'; } },
             'github': { type: 'exec', exec: function () { window.open('https://github.com/shibammandal', '_blank'); return 'Opening GitHub...'; } },
-            'linkedin': { type: 'exec', exec: function () { window.open('https://linkedin.com/in/shibammandalfy', '_blank'); return 'Opening LinkedIn...'; } }
+            'linkedin': { type: 'exec', exec: function () { window.open('https://linkedin.com/in/shibammandalfy', '_blank'); return 'Opening LinkedIn...'; } },
+            'scholar': { type: 'exec', exec: function () { window.open('https://scholar.google.com/citations?user=KDGGG4EAAAAJ&hl=en', '_blank'); return 'Opening Google Scholar...'; } }
         }
     }
 };
@@ -171,7 +173,8 @@ These shell commands are defined internally. Type [[b;${colors.white};]help] to 
 
     resume: function () { fileSystem['~'].files['resume'].exec(); },
     github: function () { fileSystem['~'].files['github'].exec(); },
-    linkedin: function () { fileSystem['~'].files['linkedin'].exec(); }
+    linkedin: function () { fileSystem['~'].files['linkedin'].exec(); },
+    scholar: function () { fileSystem['~'].files['scholar'].exec(); }
 };
 
 const banner = `
