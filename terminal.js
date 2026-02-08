@@ -67,9 +67,6 @@ class Terminal {
     }
 
     async showBanner() {
-        // Boot sequence
-        await this.bootSequence();
-
         // Display ASCII title banner
         await this.typeOutput(window.ASCII_ART.title, 0);
         await this.delay(300);
@@ -79,42 +76,9 @@ class Terminal {
 
         // Auto-run neofetch on load
         await this.delay(500);
-        this.print(`${this.getPrompt()}neofetch`);
+        this.print(`<span class="prompt">visitor@shibam-portfolio:~$</span> neofetch`);
         await this.delay(300);
         this.runNeofetch();
-    }
-
-    async bootSequence() {
-        const bootMessages = [
-            { text: 'PORTFOLIO BIOS v2026.02.08', delay: 100 },
-            { text: 'Copyright (C) Shibam Mandal', delay: 50 },
-            { text: '', delay: 100 },
-            { text: 'Initializing system...', delay: 200 },
-            { text: 'CPU: JavaScript Engine @ Web Speed', delay: 100 },
-            { text: 'Memory: Unlimited Browser RAM', delay: 100 },
-            { text: 'Storage: Virtual Filesystem Ready', delay: 100 },
-            { text: '', delay: 100 },
-            { text: 'Loading portfolio modules...', delay: 150 },
-            { text: '  [OK] ascii-art.js', delay: 80 },
-            { text: '  [OK] filesystem.js', delay: 80 },
-            { text: '  [OK] terminal.js', delay: 80 },
-            { text: '', delay: 100 },
-            { text: 'Starting terminal...', delay: 200 },
-            { text: '', delay: 300 },
-        ];
-
-        for (const msg of bootMessages) {
-            if (msg.text.includes('[OK]')) {
-                this.print(`<span class="boot-text">${msg.text.replace('[OK]', '<span class="boot-ok">[OK]</span>')}</span>`);
-            } else {
-                this.print(`<span class="boot-text">${msg.text}</span>`);
-            }
-            await this.delay(msg.delay);
-        }
-
-        // Clear boot messages and show main terminal
-        await this.delay(500);
-        this.clearTerminal();
     }
 
     handleKeyDown(e) {
@@ -262,9 +226,9 @@ class Terminal {
             'uname': () => this.cmdUname(args),
             'hostname': () => this.print('shibam-portfolio'),
             'ping': () => this.runPing(args[0]),
-            'curl': () => this.print('curl: Try visiting my GitHub instead -> github.com/shibammandal'),
-            'wget': () => this.print('wget: Try visiting my GitHub instead -> github.com/shibammandal'),
-            'git': () => this.print('git: Check out my repos at github.com/shibammandal'),
+            'curl': () => this.print('curl: Try visiting my GitHub instead -> github.com/mandalfy'),
+            'wget': () => this.print('wget: Try visiting my GitHub instead -> github.com/mandalfy'),
+            'git': () => this.print('git: Check out my repos at github.com/mandalfy'),
             'python': () => this.cmdPython(),
             'python3': () => this.cmdPython(),
             'node': () => this.print('Welcome to Node.js v20.0.0.\\n> console.log("Hello!")\\nHello!'),
@@ -279,9 +243,9 @@ class Terminal {
             'bye': () => this.print('Goodbye! Thanks for visiting!'),
             'theme': () => this.print('Theme: Blue & White (Minimalistic)'),
             'version': () => this.print('Portfolio OS v2026.01 - Built with vanilla JS'),
-            'github': () => this.openLink('https://github.com/shibammandal'),
-            'linkedin': () => this.openLink('https://linkedin.com/in/shibammandalfy'),
-            'email': () => this.print('Email: shibammandal603@gmail.com'),
+            'github': () => this.openLink('https://github.com/mandalfy'),
+            'linkedin': () => this.openLink('https://linkedin.com/in/shibam-mandal'),
+            'email': () => this.print('Email: shibammandalfy@gmail.com'),
             'tree': () => this.cmdTree(),
             'fortune': () => this.showFortune(),
             'cal': () => this.cmdCal(),

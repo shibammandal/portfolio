@@ -189,9 +189,10 @@ Community:
     getContactContent() {
         return `Contact Me
 ──────────
-Email     : shibammandal603@gmail.com
-GitHub    : github.com/shibammandal
-LinkedIn  : linkedin.com/in/shibammandalfy
+Email     : shibammandalfy@gmail.com
+GitHub    : github.com/mandalfy
+LinkedIn  : linkedin.com/in/shibam-mandal
+Twitter/X : @mandalfy
 Location  : India
 
 Feel free to reach out for collaborations or opportunities.`;
