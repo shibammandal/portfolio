@@ -23,26 +23,26 @@ const fileSystem = {
         type: 'dir',
         files: {
             'about.txt': `Name: Shibam Mandal
-Role: ML & Robotics Engineer
-Focus: Full Stack Robotics, MLOps, Computer Vision
+Role: Full Stack ML & Robotics Engineer
+Focus: Task & Motion Planning, Full Stack Robotics, MLOps
 
 Building learning-guided autonomous systems and handling operations.
 `,
             'skills.md': `# Technical Skills
 
-## Robotics & Core
-- ROS / ROS2
-- C++ (Real-time)
-- Python
+## Robotics & TAMP
+- ROS / ROS2 / Gazebo
+- Task & Motion Planning (PDDL)
+- C++ (Real-time Control)
 
-## ML & MLOps
+## Full Stack ML
 - PyTorch / TensorFlow
-- Computer Vision
-- MLOps (Docker, CI/CD)
+- MLOps (Docker, K8s, CI/CD)
+- Model Deployment
 
-## Full Stack
+## Full Stack Dev
 - React / Next.js
-- Cloud Architecture
+- Python / Cloud Arch
 - System Design
 `,
             'education.txt': `# Education
