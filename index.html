@@ -1,110 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <title>Shibam Mandal | Terminal Portfolio</title>
-    <meta name="description" content="Interactive terminal-style portfolio of Shibam Mandal - Developer, AI/ML Enthusiast" />
+    <meta name="description" content="Minimal Linux-style terminal portfolio of Shibam Mandal" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="./favicon.ico" />
-    
+
     <!-- jQuery Terminal CSS -->
     <link href="https://cdn.jsdelivr.net/npm/jquery.terminal@2.37.1/css/jquery.terminal.min.css" rel="stylesheet" />
-    
+
     <style>
         :root {
-            --color: #00ff00;
-            --background: #000;
+            --color: #33b5e5;
+            /* Flat Blue - holo_blue_light */
+            --background: #121212;
+            /* Material Dark Gray (not full black) */
             --size: 1.2;
-            --font: 'Fira Code', 'Consolas', 'Monaco', monospace;
-            --animation: terminal-blink;
+            --font: 'Fira Code', 'CaskaydiaCove Nerd Font', 'FiraCode Nerd Font', 'MesloLGS NF', monospace;
+            --link-color: #0099cc;
+            /* Slightly darker blue for links */
         }
-        
-        html, body {
+
+        html,
+        body {
             margin: 0;
             padding: 0;
             height: 100%;
             background: var(--background);
         }
-        
+
+        /* Remove glow effects and shadows */
         .terminal {
             --size: 1.2;
+            text-shadow: none !important;
+            --terminal-glow: 0;
+            --terminal-text-shadow: none;
         }
-        
+
+        .cmd {
+            --color: #33b5e5;
+        }
+
+        /* Prompt Styling */
+        .prompt {
+            color: #33b5e5;
+            font-weight: bold;
+        }
+
         .command {
-            cursor: pointer;
+            cursor: default;
+            /* No pointer cursor in real terminals */
         }
-        
-        .command:hover {
-            text-decoration: underline;
+
+        /* Links - underline on hover, consistent blue */
+        .terminal a {
+            color: var(--link-color);
+            text-decoration: none;
+            border-bottom: 1px dashed var(--link-color);
         }
-        
-        /* Neofetch styling */
-        .neofetch-label {
-            color: #00ffff;
+
+        .terminal a:hover {
+            background: var(--link-color);
+            color: var(--background);
+            text-decoration: none;
         }
-        
-        .neofetch-value {
-            color: #ffffff;
+
+        /* Directory colors */
+        .directory {
+            color: #5f87ff;
+            /* Directory Blue */
+            font-weight: bold;
         }
-        
-        /* Section headers */
-        .section-header {
-            color: #00ffff;
-        }
-        
-        /* Links */
-        .terminal-link {
-            color: #00ffff;
-        }
-        
-        .terminal-link:hover {
-            color: #ffffff;
-        }
-        
-        /* Skill bars */
-        .skill-bar {
+
+        /* Executable colors */
+        .executable {
             color: #00ff00;
+            /* Executable Green */
+            font-weight: bold;
         }
-        
+
+        /* File colors */
+        .file {
+            color: #ffffff;
+            /* File White */
+        }
+
         @media screen and (min-width: 1200px) {
             :root {
                 --size: 1.4;
             }
         }
-        
+
         @media screen and (max-width: 600px) {
             :root {
                 --size: 1;
             }
         }
-        
-        /* Welcome text */
-        .welcome {
-            color: #888;
+
+        /* Scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 10px;
+            background: var(--background);
         }
-        
-        /* Error message */
-        .error {
-            color: #ff5555;
+
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+            border: 1px solid var(--background);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #444;
         }
     </style>
-    
-    <!-- Google Fonts -->
+
+    <!-- Google Fonts + Nerd Font patches via CSS for FiraCode -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Using a Nerd Font webfont CDN (approximate) or fallback to system fonts -->
+    <link href="https://www.nerdfonts.com/assets/css/webfont.css" rel="stylesheet">
 </head>
+
 <body>
     <!-- jQuery -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
-    
+
     <!-- jQuery Terminal -->
     <script src="https://cdn.jsdelivr.net/npm/jquery.terminal@2.37.1/js/jquery.terminal.min.js"></script>
-    
+
     <!-- Figlet for ASCII art -->
     <script src="https://cdn.jsdelivr.net/npm/figlet@1.6.0/lib/figlet.js"></script>
-    
+
     <!-- Main application -->
     <script src="./main.js"></script>
 </body>
+
 </html>
