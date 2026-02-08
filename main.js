@@ -23,28 +23,27 @@ const fileSystem = {
         type: 'dir',
         files: {
             'about.txt': `Name: Shibam Mandal
-Role: Developer & AI/ML Enthusiast
-Focus: Deep Learning, Computer Vision, Full-Stack Web Dev
+Role: ML & Robotics Engineer
+Focus: Full Stack Robotics, MLOps, Computer Vision
 
-I build things that live on the internet and explore AI/ML.
+Building learning-guided autonomous systems and handling operations.
 `,
             'skills.md': `# Technical Skills
 
-## Languages
-- Python (90%)
-- JavaScript (85%)
-- C/C++ (75%)
+## Robotics & Core
+- ROS / ROS2
+- C++ (Real-time)
+- Python
 
-## AI/ML
-- PyTorch
-- TensorFlow
-- Computer Vision (OpenCV)
-- NLP
+## ML & MLOps
+- PyTorch / TensorFlow
+- Computer Vision
+- MLOps (Docker, CI/CD)
 
-## Web
+## Full Stack
 - React / Next.js
-- Node.js
-- HTML/CSS
+- Cloud Architecture
+- System Design
 `,
             'education.txt': `# Education
 
