@@ -49,7 +49,7 @@ I build things that live on the internet and explore AI/ML.
             'education.txt': `# Education
 
 B.Tech in Computer Science & Engineering
-Expected Graduation: 2026
+Expected Graduation: 2028
 
 Coursework:
 - Data Structures & Algorithms
