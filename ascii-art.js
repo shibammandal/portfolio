@@ -24,16 +24,23 @@ const ASCII_TITLE = `
 const ASCII_PORTRAIT = '';
 const ASCII_PORTRAIT_SMALL = '';
 
-// Neofetch-style system info - Minimalistic
+// Neofetch-style system info - Enhanced Terminal Style
 const NEOFETCH_INFO = `
-shibam@portfolio
-────────────────────
-OS      : Developer v2026
-Host    : B.Tech Student
-Kernel  : AI/ML Enthusiast
-Uptime  : 4+ years coding
-Shell   : Python, JavaScript, C++
-Terminal: web-portfolio v1.0
+<span class="neofetch-info"><span class="username">shibam</span><span class="at">@</span><span class="hostname">portfolio</span>
+<span class="divider">─────────────────────────────</span>
+<span class="label">OS</span><span class="separator">:</span> <span class="value">Portfolio OS 2026.02</span>
+<span class="label">Host</span><span class="separator">:</span> <span class="value">B.Tech CSE Student</span>
+<span class="label">Kernel</span><span class="separator">:</span> <span class="value">AI/ML Enthusiast v3.0</span>
+<span class="label">Uptime</span><span class="separator">:</span> <span class="value">4+ years coding</span>
+<span class="label">Packages</span><span class="separator">:</span> <span class="value">Python, JavaScript, C++, PyTorch</span>
+<span class="label">Shell</span><span class="separator">:</span> <span class="value">web-terminal 2.0</span>
+<span class="label">Resolution</span><span class="separator">:</span> <span class="value">Responsive × Adaptive</span>
+<span class="label">Terminal</span><span class="separator">:</span> <span class="value">portfolio-terminal</span>
+<span class="label">CPU</span><span class="separator">:</span> <span class="value">JavaScript Engine</span>
+<span class="label">Memory</span><span class="separator">:</span> <span class="value">Creative × Infinite</span>
+
+<span style="color:#000;background:#000;">███</span><span style="color:#f00;background:#f00;">███</span><span style="color:#0f0;background:#0f0;">███</span><span style="color:#ff0;background:#ff0;">███</span><span style="color:#00f;background:#00f;">███</span><span style="color:#f0f;background:#f0f;">███</span><span style="color:#0ff;background:#0ff;">███</span><span style="color:#fff;background:#fff;">███</span>
+</span>
 `;
 
 // Welcome message
@@ -217,10 +224,9 @@ Run 'contact' to get in touch.
 const CONTACT_TEXT = `
 Contact Me
 ──────────
-Email     : shibammandalfy@gmail.com
-GitHub    : github.com/mandalfy
-LinkedIn  : linkedin.com/in/shibam-mandal
-Twitter/X : @mandalfy
+Email     : shibammandal603@gmail.com
+GitHub    : github.com/shibammandal
+LinkedIn  : linkedin.com/in/shibammandalfy
 Location  : India
 
 Feel free to reach out for collaborations or opportunities.
@@ -240,7 +246,7 @@ Request accepted!
 Shibam Mandal has been hired!
 
 (Just kidding... but you can make it happen.)
-Contact: shibammandalfy@gmail.com
+Contact: shibammandal603@gmail.com
 `;
 
 // Export all ASCII art and text content
